@@ -178,6 +178,7 @@ input {
 
 nav {
   padding: 38px 0 0 0;
+  position: relative;
 }
 
 nav input {
@@ -189,12 +190,18 @@ nav input {
   border: none;
   height: 72px;
   font-size: 42px;
-  background-image: -moz-linear-gradient(50% 50% 270deg,#FFFFFF, #E9E9E9);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#e9e9e9));
+  background-image: -moz-linear-gradient(50% 50% 270deg,#FFFFFF, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#e6e6e6));
   text-shadow: 1px 1px 1px rgba(255,255,255,1);
   color: #555;
   text-indent: 26px;
+  -webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
   box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+  outline: none;
+}
+
+nav input:focus {
+	border-radius: 14px;
 }
 
 nav input::-webkit-input-placeholder {
@@ -203,6 +210,39 @@ nav input::-webkit-input-placeholder {
   text-shadow: 1px 1px 1px rgba(255,255,255,1);
 }
 
+.search_btn {
+  position: absolute;
+  top: 46px;
+  right: 8px;
+	-moz-border-radius: 13px;
+  -o-border-radius: 13px;
+  -webkit-border-radius: 13px;
+  border-radius: 13px;
+  width: 95px;
+  height: 54px;
+  z-index: 10;
+	background-image: -webkit-gradient(linear, 0% 50%, 0% 100%, from(#FFFFFF), to(#F3F3F3));
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	border: 1px solid #eee;
+	cursor: pointer;
+}
+
+.search_btn a {
+	display: block;
+	text-indent: -9999px;
+	background: url(../img/sprites.png) 0px 0px no-repeat;
+	width: 95px;
+	height: 54px;
+}
+
+.search_btn:hover {
+	background-image: -webkit-gradient(linear, 0% 50%, 0% 100%, from(#fff), to(#fff));
+}
+
+.search_btn a:hover {
+	background-position: -95px 0;
+}
 
 
 
