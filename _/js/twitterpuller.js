@@ -1,3 +1,15 @@
+/* QUESTIONS FOR AARON
+
+1. Many Twitter results are not in English. Can we do something to specify only English results? (Note to self: Look at Twitter API).
+2. Why did we abandon the "this.var" construction inside of TwitterPuller.prototype.searchTwitterCallback? (Note to self: Must have to do with scope being secure, but get Aaron's thoughts on this).
+3. Question around line 80.
+
+
+ */
+
+
+
+
 function TwitterPuller() {
   this.init();
 }
@@ -62,8 +74,19 @@ TwitterPuller.prototype.searchTwitterCallback = function(responseObject) {
       var profileURL = "http://twitter.com/#!/" + aTweet.from_user;
       var $li = jQuery('<li />');
       
-      // Use RegEx to parse aTweet.created_at to show only the Day, Month and Year
+      // Use RegEx to parse aTweet.created_at to show only the Day, Month and Year.
       var parse_tweet_time = aTweet.created_at.match(/\d.\s\w+\s\d+/);
+      
+      // ASK AARON ABOUT THIS: Use RegEx to find @replies in aTweet.text. Turn these into links.
+      //var parse_tweet_text = aTweet.text.match(/@\w+/g);
+      //  if(parse_tweet_text !== null){
+      //    for(var d=0; d<parse_tweet_text.length; d++){
+      //      var $at_reply_link = jQuery('<a class="at_reply" />');
+      //      var at_reply_URL = "http://twitter.com/#!/" + parse_tweet_text[d];
+      //      $at_reply_link.attr('href', at_reply_URL);
+      //      console.log($at_reply_link);
+      //    }
+      //  }
       
       $profileImage.attr('src', aTweet.profile_image_url);
       $profileImageWrapper.html($profileImage).attr('href', profileURL);
