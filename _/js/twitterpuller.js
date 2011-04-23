@@ -6,7 +6,6 @@ TwitterPuller.prototype.init = function() {
   this._$searchBox = jQuery('#about_entry');
   this._$searchButton = jQuery('#search_btn');
   this.bindEvents();
-  this.aaron();
 }
 
 TwitterPuller.prototype.bindEvents = function() {
@@ -49,20 +48,19 @@ TwitterPuller.prototype.searchTwitterCallback = function(responseObject) {
       //aTweet.text
       //aTweet.profile_image_url
       var $profileImage = jQuery('<img />');
+      var $dateHolder = jQuery('<div />');
       var $textHolder = jQuery('<div />');
       var $li = jQuery('<li />');
       
       $profileImage.attr('src', aTweet.profile_image_url);
       $textHolder.html(aTweet.text);
+      $dateHolder.html(aTweet.created_at);
       $li.append($profileImage)
+         .append($dateHolder)
          .append($textHolder);
       $twitterList.append($li);
     }
   }
-}
-
-TwitterPuller.prototype.aaron = function() {
-  
 }
 
 TwitterPuller.prototype.buttonPush = function() {
@@ -73,8 +71,4 @@ TwitterPuller.prototype.handleKeyPress = function(ev) {
   if (ev.keyCode == 13) {
     this.searchTwitter();
   }
-}
-
-TwitterPuller.prototype.renderStream = function() {
-  
 }
