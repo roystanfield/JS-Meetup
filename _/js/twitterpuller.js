@@ -58,9 +58,12 @@ TwitterPuller.prototype.searchTwitterCallback = function(responseObject) {
       var $profileImageWrapper = jQuery('<a />');
       var $userHolder = jQuery('<a />');
       var $dateHolder = jQuery('<span />');
-      var $textHolder = jQuery('<div />');
+      var $textHolder = jQuery('<div class="tweet_text" />');
       var profileURL = "http://twitter.com/#!/" + aTweet.from_user;
       var $li = jQuery('<li />');
+      
+      // Use RegEx to parse aTweet.created_at to show only the Day, Month and Year
+      var parse_tweet_time = aTweet.created_at.match(/\d.\s\w+\s\d+/);
       
       $profileImage.attr('src', aTweet.profile_image_url);
       $profileImageWrapper.html($profileImage).attr('href', profileURL);
@@ -68,7 +71,7 @@ TwitterPuller.prototype.searchTwitterCallback = function(responseObject) {
       $userHolder.html(aTweet.from_user).attr('href', profileURL);
       
       $textHolder.html(aTweet.text);
-      $dateHolder.html(aTweet.created_at);
+      $dateHolder.html(parse_tweet_time[0]);
       
       
       $li.append($profileImageWrapper)
