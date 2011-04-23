@@ -39,29 +39,52 @@ TwitterPuller.prototype.searchTwitter = function() {
   });
 }
 
+
+
+
+
 TwitterPuller.prototype.searchTwitterCallback = function(responseObject) {
   var $twitterList = jQuery('#twitter_feed');
   $twitterList.empty();
+  
+  
   if(responseObject.results != null && responseObject.results.length > 0) {
     for(var i=0; i<responseObject.results.length; i++) {
       var aTweet = responseObject.results[i];
       //aTweet.text
       //aTweet.profile_image_url
+      //aTweet.from_user
       var $profileImage = jQuery('<img />');
-      var $dateHolder = jQuery('<div />');
+      var $profileImageWrapper = jQuery('<a />');
+      var $userHolder = jQuery('<a />');
+      var $dateHolder = jQuery('<span />');
       var $textHolder = jQuery('<div />');
+      var profileURL = "http://twitter.com/#!/" + aTweet.from_user;
       var $li = jQuery('<li />');
       
       $profileImage.attr('src', aTweet.profile_image_url);
+      $profileImageWrapper.html($profileImage).attr('href', profileURL);
+      
+      $userHolder.html(aTweet.from_user).attr('href', profileURL);
+      
       $textHolder.html(aTweet.text);
       $dateHolder.html(aTweet.created_at);
-      $li.append($profileImage)
+      
+      
+      $li.append($profileImageWrapper)
+         .append($userHolder)
          .append($dateHolder)
          .append($textHolder);
       $twitterList.append($li);
     }
   }
+  
+  
 }
+
+
+
+
 
 TwitterPuller.prototype.buttonPush = function() {
   this.searchTwitter();
