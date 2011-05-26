@@ -14,7 +14,6 @@
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
-<!-- this is where we put our custom functions -->
 <script src="_/js/twitterpuller.js"></script>
 
 	<script type="text/javascript">
@@ -28,6 +27,16 @@
 </head>
 
 <body>
+
+
+<article id="slideshow">
+
+  <ul>
+    <li><img src="_/img/temp/cat_1.jpg"></li>
+    <!--<li><img src="_/img/temp/cat_2.jpg"></li>-->
+  </ul>
+
+</article>
 
 <div class="wrapper">
 
@@ -43,18 +52,65 @@
       </div>
 		
 		</nav>
+		
+		<div class="slideshow_controls">
+  	  <p class="number_of_sides">1 of 15</p>
+      <ul class="controls">
+        <li class="prev_li"><a class="prev" href="">Prev</a></li>
+        <li class="next_li"><a class="next" href="">Next</a></li>
+      </ul>
+    </div><!-- closes .slideshow_controls -->
+    
 	</header>
 	
 	
 	
+	<div id="inner_container">
+	
+    <article id="body_text">
+      <h1>Facts</h1>
+      <a class="small_link wikipedia_page_link" href="#">wikipedia page &raquo;</a>
+      
+      <div class="wikipedia_text">
+      
+        <p>
+          The cat (Felis catus), also known as the domestic cat or housecat[5] to distinguish it from other felines and felids, is a small furry domesticated carnivorous mammal that is valued by humans for its companionship and for its ability to hunt vermin and household pests. Cats have been associated with humans for at least 9,500 years,[6] and are currently the most popular pet in the world.[7] Owing to their close association with humans, cats are now found almost everywhere in the world.
+        </p>
+        
+        <p>
+          Cats are similar in anatomy to the other felids, with strong, flexible bodies, quick reflexes, sharp retractable claws, and teeth adapted to killing small prey. As nocturnal predators, cats use their acute hearing and ability to see in near darkness to locate prey. Not only can cats hear sounds too faint for human ears, they can also hear sounds higher in frequency than humans can perceive. This is because the usual prey of cats (particularly rodents such as mice) make high frequency noises, so the hearing of the cat has evolved to pinpoint these faint high-pitched sounds. Cats rely more on smell than taste, and have a much better sense of smell than humans.
+        </p>
+        
+        <p>
+          Despite being solitary hunters, cats are a social species and use a variety of vocalizations, pheromones and types of body language for communication. These include meowing, purring, trilling, hissing, growling, and grunting.[8]
+        </p>
+        
+        <p>
+          Cats have a rapid breeding rate. Under controlled breeding, they can be bred and shown as registered pedigree pets, a hobby known as cat fancy. Failure to control the breeding of pet cats by spaying and neutering and the abandonment of former household pets has resulted in large numbers of feral cats worldwide, with a population of up to 60 million of these animals in the United States alone.[9]
+        </p>
+      
+      </div>
+    
+    </article>
+  
+  	
+  	
+  	
+  	<article id="twitter_feed_container">
+      <h1>Opinion</h1>
+      <a class="small_link twitter_search_results_link" href="#">twitter cats &raquo;</a>
+      
+      <div class="refresh_container">
+        <a class="refresh">Refresh</a>
+      </div>
+      
+  		<ul id="twitter_feed">
+  		
+  		</ul>
+  	</article>
 	
 	
-	<article>
-		<ul id="twitter_feed">
-		
-		</ul>
-	</article>
-	
+	</div><!-- closes #inner_container-->
 	
 	
 	
